@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only --exit-child src/app.ts",
+    "start": "ts-node src/app.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "dev" : "nodemon"
   },
