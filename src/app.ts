@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import authRoute from './routes/auth.route'
 import userRoute from './routes/user.route'
+import appoinmentRoute from './routes/appionment.route'
 import AppError from './utils/appError';
 AppDataSource.initialize()
   .then(async () => {
@@ -33,6 +34,7 @@ AppDataSource.initialize()
     // ROUTES
     app.use('/api/auth', authRoute)
     app.use('/api/user', userRoute)
+    app.use('/api/appionment' , appoinmentRoute)
 
     // HEALTH CHECKER
     app.get('/api/healthchecker', async (_, res: Response) => {

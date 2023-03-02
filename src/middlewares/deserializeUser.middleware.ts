@@ -19,19 +19,15 @@ export const deserializeUser = async (
         if(!access_token) {
             return next(new AppError(401 , 'You are not logged in'))
         }   
-        const decoded = verifyJwt<{sub : string}>(access_token , "accessTokenPrivateKey")
+        
+        const decoded = verifyJwt<{sub : string}>(access_token , "accessTokenPublicKey")
         if(!decoded) return next(new AppError(401 , 'Not authorized'))
-        console.log(access_token)
         const session = await redisClient.get(decoded.sub)
-        if(!session) return next(new AppError(401 , 'Not authorized'))
+        if(!session) return next(new AppError(401 , 'Not authorized')) 
         const user = await findUserById(JSON.parse(session).id)
         if(!user) return next(new AppError(401 , 'Not authorized'))
-        res.status(200).json({
-            status : 'success',
-            data : {
-                user
-            }
-        })  
+        res.locals.user = user
+        next()  
     } catch (error) {
         next(error)
     }

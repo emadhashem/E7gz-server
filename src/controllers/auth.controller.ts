@@ -36,9 +36,9 @@ export const registerUserHandler = async (
     next: NextFunction
 ) => {
     try {
-        const { name, email, password } = req.body
+        const { name, email, password, role } = req.body
         const newUser = await createUser({
-            name, email: email.toLowerCase(), password
+            name, email: email.toLowerCase(), password, role
         })
         res.status(201)
             .json({

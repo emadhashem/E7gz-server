@@ -4,6 +4,7 @@ import { User } from "../entities/user.entity";
 import config from 'config'
 import redisClient from "../utils/connectRedis";
 import { signJwt } from "../utils/jwts";
+import AppError from "../utils/appError";
 
 const userRepo = AppDataSource.getRepository(User)
 
@@ -31,7 +32,9 @@ export const findUserByEmail = async ({email} : {email : string}) => {
     return await userRepo.findOneBy({email})
 }
   
-export const findUserById = async ({id} : {id : string}) => {
-    return await userRepo.findOneBy({id})
+export const findUserById = async (id : string) => {
+    const user = await userRepo.findOneBy({id})
+    if(user) return user
+    throw new AppError(400 , 'user not found')
 }
 

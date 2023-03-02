@@ -5,7 +5,7 @@ export const requiredUser =async (
     req : Request , res : Response , next : NextFunction
 ) => {
     try {
-        const user = res.locals.user
+        const user = res.locals.user;
         if(!user) {
             return next(new AppError(400 , 'session has expired or user not found'))
         }

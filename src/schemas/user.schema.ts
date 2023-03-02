@@ -1,12 +1,16 @@
 import { z, TypeOf } from 'zod'
-
+export enum userRole  {
+    admin = 'admin' , user = 'user'
+}
 export const createUserShcema = z.object({
     body : z.object({
         name : z.string().min(3),
         password : z.string().min(3),
-        email : z.string().email(),  
+        email : z.string().email(),
+        role : z.nativeEnum(userRole)  
     })
 })
+
 
 export const loginUserSchema = z.object({
     body : z.object({
