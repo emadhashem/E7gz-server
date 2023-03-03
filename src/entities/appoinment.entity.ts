@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
+import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
 import { BaseModel } from "./base.model";
 import { User } from "./user.entity";
 
@@ -14,7 +14,8 @@ export class Appoinment extends BaseModel {
         nullable : false
     })
     msg : string
-
+    
+    @Index("appoinment_title_index")
     @Column()
     title : string
 

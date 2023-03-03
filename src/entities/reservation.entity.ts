@@ -22,9 +22,9 @@ export class Reservation extends BaseModel {
     })
     user: User
 
-    @OneToOne(() => Appoinment)
+    @OneToOne(() => Appoinment, {onDelete : "CASCADE"})
     @JoinColumn({
-        name : 'appionment_id'
+        name : 'appionment_id',
     })
     appoinment : Appoinment
 } 

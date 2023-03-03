@@ -1,16 +1,21 @@
 import { Router } from "express";
-import { addNewAppoinmentHandler } from "../controllers/appoinment.controller";
-import { success } from "../global";
+import { addNewAppoinmentHandler, deleteAppoinmentHandler, getAppoinmentsByTitleHandler } from "../controllers/appoinment.controller";
 import { deserializeUser } from "../middlewares/deserializeUser.middleware";
 import { isAdmin } from "../middlewares/isAdmin.middleware";
 import { requiredUser } from "../middlewares/requiredUser.middleware";
 import { validate } from "../middlewares/validate.middleware";
-import { createNewAppionmentSchema } from "../schemas/appoinment.schema";
+import { createNewAppoinmentSchema, DeleteAppoinmentSchema, getAppoinmentsByTitleSchema } from "../schemas/appoinment.schema";
 
 const router = Router()
-
-router.post('/add', deserializeUser, requiredUser, isAdmin,
-    validate(createNewAppionmentSchema), addNewAppoinmentHandler
+router.use(deserializeUser, requiredUser, isAdmin)
+router.post('/add',
+    validate(createNewAppoinmentSchema), addNewAppoinmentHandler
 )
+router.get('/get', validate(getAppoinmentsByTitleSchema), getAppoinmentsByTitleHandler)
+router.get('/all', (req, res) => {
+    res.send('test')
+})
+router.delete('/delete' , validate(DeleteAppoinmentSchema), deleteAppoinmentHandler)
+
 
 export default router

@@ -35,7 +35,7 @@ AppDataSource.initialize()
     // ROUTES
     app.use('/api/auth', authRoute)
     app.use('/api/user', userRoute)
-    app.use('/api/appionment' , appoinmentRoute)
+    app.use('/api/appoinment' , appoinmentRoute)
     app.use('/api/reservation' , reservationRoute)
 
     // HEALTH CHECKER
