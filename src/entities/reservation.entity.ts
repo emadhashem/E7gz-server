@@ -6,10 +6,14 @@ import { User } from "./user.entity";
 @Entity('reservations')
 export class Reservation extends BaseModel {
 
-    @Column()
+    @Column({
+        default : false
+    })
     admin_confirm: boolean
 
-    @Column()
+    @Column({
+        default : false
+    })
     user_confirm: boolean
 
     @ManyToOne(() => User, (user) => user.reservations)
@@ -22,5 +26,5 @@ export class Reservation extends BaseModel {
     @JoinColumn({
         name : 'appionment_id'
     })
-    appionment : Appoinment
+    appoinment : Appoinment
 } 

@@ -23,6 +23,9 @@ export const createNewAppionment = async (appionment: IcreateNewAppionment) => {
     })
     return await newAppionment.save()
 }
+export const findAppoinmentById = async (appionment_id: string) => {
+    return appionmentRepo.findOneBy({ id: appionment_id })
+}
 
 export const checkForOverlap = async (start: string, end: string) => {
     return await appionmentRepo
