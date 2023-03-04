@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { success } from "../global";
 import { createNewAppoinmentInputType, DeleteAppoinmentInputType, GetAppoinmentsByTitleInputType } from "../schemas/appoinment.schema";
-import { createNewappoinment, deleteAppoinment, getAppoinmentsByTitle } from "../services/appoinment.service";
+import { createNewappoinment, deleteAppoinment, getAllAppoinments, getAppoinmentsByTitle } from "../services/appoinment.service";
 
 
 export const addNewAppoinmentHandler = async (
@@ -33,16 +33,31 @@ export const getAppoinmentsByTitleHandler = async (
     }
 }
 
-export const deleteAppoinmentHandler =async (
-    req : Request<{} , {} , DeleteAppoinmentInputType>, res : Response, next : NextFunction
+export const deleteAppoinmentHandler = async (
+    req: Request<{}, {}, DeleteAppoinmentInputType>, res: Response, next: NextFunction
 ) => {
     try {
         const admin = res.locals.user.id
-        const {appoinment_id} = req.body
+        const { appoinment_id } = req.body
         const affected = await deleteAppoinment(appoinment_id)
         res.send({
-            status : success,
+            status: success,
             affected
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const getAllAppoinmentsHandler = async (
+    req: Request, res: Response, next: NextFunction
+) => {
+    try {
+        const admin = res.locals.user.id
+        const data = await getAllAppoinments(admin)
+        res.send({
+            status : success,
+            data
         })
     } catch (error) {
         next(error)

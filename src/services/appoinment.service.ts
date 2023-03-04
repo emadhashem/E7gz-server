@@ -40,13 +40,24 @@ export const checkForOverlap = async (start: string, end: string) => {
 }
 
 export const getAppoinmentsByTitle = async (title: string, admin: string) => {
-    console.log(title , admin);
+    console.log(title, admin);
     return await appoinmentRepo.createQueryBuilder('appoinment')
         .where('appoinment.title =:title AND appoinment.admin = :admin', {
-            admin, title : ''
+            admin, title: ''
         })
         .getMany()
 }
-export const deleteAppoinment =async (appoinment_id : string) => {
-    return await appoinmentRepo.delete({id : appoinment_id})
+export const deleteAppoinment = async (appoinment_id: string) => {
+    return await appoinmentRepo.delete({ id: appoinment_id })
+}
+
+export const getAllAppoinments = async (admin: string) => {
+    return await appoinmentRepo.createQueryBuilder('appoinment')
+        .where('appoinment.admin = :admin', { admin })
+        .select('appoinment.title AS title')
+        .addSelect('COUNT(appoinment.title) AS count')
+        .groupBy('appoinment.title')
+        .getRawMany()
+
+
 }
