@@ -38,3 +38,8 @@ export const findUserById = async (id : string) => {
     throw new AppError(400 , 'user not found')
 }
 
+export const searchUserByName =async (searchText : string) => {
+    return await userRepo.createQueryBuilder('user')
+    .where('to_tsvector(user.name) @@ to_tsquery(:searchText)' , {searchText})
+    .getMany() 
+}
