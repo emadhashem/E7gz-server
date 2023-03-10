@@ -1,0 +1,50 @@
+{
+  "post": {
+    "tags": ["Auth"],
+    "summary": "User Register operation",
+    "operationId": "Register",
+    "parameters": [],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "example": {
+              "email": "j_doe@gmail.com",
+              "password": "John$Doe",
+              "name": "test test",
+              "role": "admin (or) user"
+            }
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RegisterResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,12 +12,17 @@ import userRoute from './routes/user.route'
 import appoinmentRoute from './routes/appionment.route'
 import reservationRoute from './routes/reservation.route'
 import AppError from './utils/appError';
+const swaggerJSDoc = require('../swagger');
+import swaggerUi from 'swagger-ui-express'
 AppDataSource.initialize()
   .then(async () => {
     // VALIDATE ENV
     validateEnv();
 
     const app = express();
+
+    // Swagger
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJSDoc, { explorer: true }))
 
     // MIDDLEWARE
 
@@ -30,13 +35,13 @@ AppDataSource.initialize()
     // 3. Cookie Parser
     app.use(cookieParser())
     // 4. Cors
-    app.use(cors({ origin: config.get('origin'), credentials : true }))
+    app.use(cors({ origin: config.get('origin'), credentials: true }))
 
     // ROUTES
     app.use('/api/auth', authRoute)
     app.use('/api/user', userRoute)
-    app.use('/api/appoinment' , appoinmentRoute)
-    app.use('/api/reservation' , reservationRoute)
+    app.use('/api/appoinment', appoinmentRoute)
+    app.use('/api/reservation', reservationRoute)
 
     // HEALTH CHECKER
     app.get('/api/healthchecker', async (_, res: Response) => {

@@ -1,0 +1,11 @@
+{
+    "type" : "object",
+    "properties" : {
+        "status": "string",
+        "message" : "string"
+    },
+    "example" : {
+        "status": "success",
+        "message" : "You Can Now Go to login"
+    }
+}

@@ -43,9 +43,7 @@ export const registerUserHandler = async (
         res.status(201)
             .json({
                 status: 'succes',
-                data: {
-                    newUser
-                }
+                message: "You Can Now Go to login"
             })
     } catch (err: any) {
         // means SQLSTATE  a unique value constraint is violated in Content Manager repository
@@ -69,7 +67,7 @@ export const loginUserHandler = async (
             return next(new AppError(400, 'email or password not valid'))
         }
         const { access_token, refresh_token } = signTokens(user)
-        
+
         res.cookie('access_token', access_token, accessTokenCookiesOption)
         res.cookie('refresh_token', refresh_token, refreshTokenCookiesOption)
         res.cookie('logged_in', true, {
@@ -78,7 +76,10 @@ export const loginUserHandler = async (
         })
         res.status(200).json({
             status: 'success',
-            access_token
+            data: {
+                access_token,
+                ...user
+            }
         })
     } catch (error) {
         next(error)
@@ -134,7 +135,7 @@ export const logoutHandler = async (
         await redisClient.del(user.id)
         logoutFromCookies(res)
         res.status(200).json({
-            status : 'success',
+            status: 'success',
         })
     } catch (error) {
         next(error)

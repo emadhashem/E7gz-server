@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "lib": [
-      "es5",
-         "es6"
-    ],
+    "lib": ["es5", "es6"],
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -14,7 +11,7 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
-    "outDir": "./build",
-    //"rootDir": "."
-  }
+    "outDir": "build",
+  },
+  "include": ["src/**/*"]
 }
