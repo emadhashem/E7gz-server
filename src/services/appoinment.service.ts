@@ -40,10 +40,9 @@ export const checkForOverlap = async (start: string, end: string) => {
 }
 
 export const getAppoinmentsByTitle = async (title: string, admin: string) => {
-    console.log(title, admin);
     return await appoinmentRepo.createQueryBuilder('appoinment')
         .where('appoinment.title =:title AND appoinment.admin = :admin', {
-            admin, title: ''
+            admin, title: title
         })
         .getMany()
 }

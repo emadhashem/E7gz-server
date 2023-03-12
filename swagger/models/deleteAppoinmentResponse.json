@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      },
+      "affected": {
+        "type" : "string",
+        "properties" : {
+            "raw": "array",
+            "affected": "number"
+        }
+        
+      }
+    },
+    "example": {
+        "status": "success",
+        "affected": {
+          "raw": [],
+          "affected": 0
+        }
+      }
+  }
+  

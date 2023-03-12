@@ -12,7 +12,10 @@ export const addNewAppoinmentHandler = async (
         const newAppoinment = await createNewappoinment({
             start, end, msg, title, admin: res.locals.user.id
         })
-        res.send(newAppoinment)
+        res.send({
+            status: success,
+            data: newAppoinment
+        })
     } catch (error) {
         next(error)
     }
@@ -56,7 +59,7 @@ export const getAllAppoinmentsHandler = async (
         const admin = res.locals.user.id
         const data = await getAllAppoinments(admin)
         res.send({
-            status : success,
+            status: success,
             data
         })
     } catch (error) {

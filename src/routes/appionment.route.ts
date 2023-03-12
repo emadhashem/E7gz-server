@@ -11,7 +11,7 @@ router.use(deserializeUser, requiredUser, isAdmin)
 router.post('/add',
     validate(createNewAppoinmentSchema), addNewAppoinmentHandler
 )
-router.get('/get', validate(getAppoinmentsByTitleSchema), getAppoinmentsByTitleHandler)
+router.get('/get_appoinments_by_title', validate(getAppoinmentsByTitleSchema), getAppoinmentsByTitleHandler)
 router.get('/all', getAllAppoinmentsHandler)
 router.delete('/delete', validate(DeleteAppoinmentSchema), deleteAppoinmentHandler)
 

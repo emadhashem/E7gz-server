@@ -1,0 +1,39 @@
+{
+    "delete": {
+      "tags": ["Appoinment"],
+      "summary": "delete Appoinment",
+      "operationId": "delete",
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "appoinment_id": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "appoinment_id" : "fa8c0e64-b44b-4ef3-a63f-ffa42257a56d"
+              }
+            }
+          }
+        },
+        "required": true
+      },
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteAppoinmentResponse"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

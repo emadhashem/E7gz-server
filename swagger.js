@@ -22,6 +22,10 @@ module.exports = {
             name: "Auth",
             description: "User methods for interaction with user entity"
         },
+        {
+            name : 'Appoinment',
+            description : 'Admin methods  for adding appoinment'
+        }
     ],
     "paths": require('./swagger/path'),
     components: {

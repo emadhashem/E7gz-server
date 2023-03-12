@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": "string",
+        "created_at": "string",
+        "updated_at": "string",
+        "start": "date",
+        "end": "date",
+        "msg": "string",
+        "title": "string",
+        "admin": {
+          "type": "object",
+          "properties": {
+            "id": "string",
+            "created_at": "string",
+            "updated_at": "string",
+            "name": "string",
+            "email": "string",
+            "role": "string"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "status": "success",
+    "data": {
+      "start": "2023-07-03 21:49:27",
+      "end": "2023-07-04 21:49:28",
+      "msg": "cjsdncjk sjkdbcjksdc ",
+      "title": "this",
+      "admin": {
+        "id": "b16dce49-f9bf-486e-833a-4442f1b87825",
+        "created_at": "2023-03-02T12:38:19.034Z",
+        "updated_at": "2023-03-02T12:38:19.034Z",
+        "name": "emad hashem",
+        "email": "tst@tst.com",
+        "role": "admin"
+      },
+      "id": "ec75bb8c-2c92-4907-bc67-5961a667cdf7",
+      "created_at": "2023-03-12T18:20:48.627Z",
+      "updated_at": "2023-03-12T18:20:48.627Z"
+    }
+  }
+}

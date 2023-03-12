@@ -1,0 +1,26 @@
+{
+    "get": {
+      "tags": ["Appoinment"],
+      "summary": "get Appoinments by title ",
+      "operationId": "get",
+      "parameters" : [
+        {
+            "name" : "title",
+            "example" : "title of new appoinment"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAppoinmetsByTitle"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

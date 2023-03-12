@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "properties": {
+        "title": "string",
+        "count": "number"
+      }
+    }
+  },
+  "example": {
+    "status": "success",
+    "data": [
+      {
+        "title": "title of new appoinment",
+        "count": "2"
+      },
+      {
+        "title": "this",
+        "count": "4"
+      }
+    ]
+  }
+}

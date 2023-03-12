@@ -1,0 +1,20 @@
+{
+    "get": {
+      "tags": ["Appoinment"],
+      "summary": "get all Appoinment ",
+      "operationId": "get",
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllAppoinmets"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
