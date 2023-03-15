@@ -1,5 +1,5 @@
 import { z, TypeOf } from "zod";
-import { deleteReservationSchema } from "./reservation.schema";
+import { updateReservationschema } from "./reservation.schema";
 
 
 export const createNewAppoinmentSchema = z.object({

@@ -1,0 +1,21 @@
+{
+    "get": {
+      "tags": ["User"],
+      "summary": "User data",
+      "operationId": "get data",
+      "parameters": [],
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetUserData"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

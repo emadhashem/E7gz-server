@@ -6,5 +6,6 @@ module.exports = {
     "AddApoinmentResponse" : require('./models/addApoinmentResponse.json'),
     "DeleteAppoinmentResponse" : require('./models/deleteAppoinmentResponse.json'),
     "GetAllAppoinmets" : require('./models/getAllAppoinments.json'),
-    "GetAppoinmetsByTitle" : require('./models/getAppoinmetsByTitleResponse.json')
+    "GetAppoinmetsByTitle" : require('./models/getAppoinmetsByTitleResponse.json'),
+    "GetUserData" : require('./models/meResponse.json')
 }

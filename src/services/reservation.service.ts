@@ -52,5 +52,10 @@ export const getAllReservation = async (user_id: string) => {
         .leftJoinAndSelect('reservation.appoinment', 'appoinment')
         .where('reservation.user_id = :user_id', { user_id })
         .getMany()
+}
+export async function getReservationById(reservation_id : string) {
+    return await reservatinRepo.createQueryBuilder('reser')
+    .where('reser.id = :reservation_id' , {reservation_id})
+    .getOne()
 
 }

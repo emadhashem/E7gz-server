@@ -1,17 +1,16 @@
 import { Router } from "express";
-import { cancelReservationHandler, createNewReservationHandler, getAllReservationHandler } from "../controllers/reservation.controller";
+import { reactToReservationHandler, createNewReservationHandler, getAllReservationHandler, getReservationByIdHandler } from "../controllers/reservation.controller";
 import { deserializeUser } from "../middlewares/deserializeUser.middleware";
 import { requiredUser } from "../middlewares/requiredUser.middleware";
 import { validate } from "../middlewares/validate.middleware";
-import { createNewReservationSchema, deleteReservationSchema } from "../schemas/reservation.schema";
+import { createNewReservationSchema, updateReservationschema } from "../schemas/reservation.schema";
 
 const router = Router()
 
 router.use(deserializeUser, requiredUser)
 router.post('/add', validate(createNewReservationSchema), createNewReservationHandler)
-router.delete('/cancel', validate(deleteReservationSchema), cancelReservationHandler)
+router.put('/react_to_reservation', validate(updateReservationschema), reactToReservationHandler)
 router.get('/all_user_reservation' , getAllReservationHandler)
-router.get('/get_reservation_by_id/:reservation_id' , (req , res) => {
-    
-})
+router.get('/get_reservation_by_id/:reservation_id' , getReservationByIdHandler)
+
 export default router
