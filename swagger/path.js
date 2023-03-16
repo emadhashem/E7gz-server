@@ -10,5 +10,6 @@ module.exports = {
     "/appoinment/get_appoinments_by_title" : require('./api/appoinment/getAppoinmetsByTitle.json'),
     "/appoinment/all" : require('./api/appoinment/getAllAppoinments.json'),
     "/appoinment/delete" : require('./api/appoinment/delete.json'),
-    "/user/me" : require('./api/user/me.json')
+    "/user/me" : require('./api/user/me.json'),
+    "/user/search_user/{name or email}" : require('')
 }
