@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { success } from "../global";
 import { CreateNewReservationInputType, UpdateReservationInputType } from "../schemas/reservation.schema";
 import { userRole } from "../schemas/user.schema";
-import { createNewReservation, deleteReservation, getAllReservation, getReservationById } from "../services/reservation.service";
+import { adminAcceptReservation, createNewReservation, deleteReservation, getAllReservation, getReservationById, userAcceptReservation } from "../services/reservation.service";
 import AppError from "../utils/appError";
 
 export const createNewReservationHandler = async (
@@ -35,13 +35,24 @@ export const reactToReservationHandler = async (
         const { reservation_id, accepte } = req.body
         if (accepte) {
             if (role === userRole.admin) {
-
+                const data = await adminAcceptReservation(reservation_id)
+                res.send({
+                    status : success,
+                    data
+                })
             } else {
-
+                const data = await userAcceptReservation(reservation_id)
+                res.send({
+                    status : success,
+                    data
+                })
             }
-            // update reservation
         } else {
-            // delete reservation
+            const data = await deleteReservation(reservation_id)
+            res.send({
+                status : success,
+                data
+            })
         }
     } catch (error) {
         next(error)

@@ -59,3 +59,17 @@ export async function getReservationById(reservation_id : string) {
     .getOne()
 
 }
+export async function userAcceptReservation(reservation_id : string) {
+    return await reservatinRepo.createQueryBuilder('reser')
+    .update()
+    .set({user_confirm : true})
+    .where('reser.id = :reservation_id' , {reservation_id})
+    .execute()
+}
+export async function adminAcceptReservation(reservation_id : string) {
+    return await reservatinRepo.createQueryBuilder('reser')
+    .update()
+    .set({admin_confirm : true})
+    .where('reser.id = :reservation_id' , {reservation_id})
+    .execute()
+}
