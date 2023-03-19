@@ -1,0 +1,29 @@
+{
+  "example": {
+    "status": "success",
+    "data": {
+      "user_confirm": true,
+      "user": {
+        "id": "94ae9bd5-8a0c-4884-b120-539f6b12b19c",
+        "created_at": "2023-03-02T12:38:43.355Z",
+        "updated_at": "2023-03-02T12:38:43.355Z",
+        "name": "omar hashem ali",
+        "email": "tst1@tst.com",
+        "role": "user"
+      },
+      "appoinment": {
+        "id": "16a3eadd-fa81-4514-90ee-a6c865c668cc",
+        "created_at": "2023-03-03T18:37:25.447Z",
+        "updated_at": "2023-03-03T18:37:25.447Z",
+        "start": "2023-04-01 21:49:27",
+        "end": "2023-04-01 21:49:28",
+        "msg": "this",
+        "title": "title of new appoinment"
+      },
+      "id": "8297ce81-6875-4a7d-a013-88d50452deee",
+      "created_at": "2023-03-19T15:43:21.824Z",
+      "updated_at": "2023-03-19T15:43:21.824Z",
+      "admin_confirm": false
+    }
+  }
+}

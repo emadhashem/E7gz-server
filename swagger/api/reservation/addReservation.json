@@ -1,0 +1,35 @@
+{
+    "post": {
+      "tags": ["Reservation"],
+      "summary": "Add reservation",
+      "operationId": "add",
+      "parameters": [],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "example": {
+                "appoinment_id" : "16a3eadd-fa81-4514-90ee-a6c865c668cc",
+                "user_id" : "{null} in case of user {user_id} in case of admin"
+              }
+            }
+          }
+        },
+        "required": true
+      },
+      "responses": {
+        "200": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddReservationResponse"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

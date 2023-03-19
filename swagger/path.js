@@ -11,5 +11,6 @@ module.exports = {
     "/appoinment/all" : require('./api/appoinment/getAllAppoinments.json'),
     "/appoinment/delete" : require('./api/appoinment/delete.json'),
     "/user/me" : require('./api/user/me.json'),
-    "/user/search_user/{name or email}" : require('')
+    "/user/search_user/{name or email}" : require('./api/user/search.json'),
+    "/reservation/add" : require('./api/reservation/addReservation.json')
 }

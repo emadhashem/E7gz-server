@@ -7,5 +7,7 @@ module.exports = {
     "DeleteAppoinmentResponse" : require('./models/deleteAppoinmentResponse.json'),
     "GetAllAppoinmets" : require('./models/getAllAppoinments.json'),
     "GetAppoinmetsByTitle" : require('./models/getAppoinmetsByTitleResponse.json'),
-    "GetUserData" : require('./models/meResponse.json')
+    "GetUserData" : require('./models/meResponse.json'),
+    "AddReservationResponse" : require('./models/addReservationResponse.json'),
+    "SearchUserResponse" : require('./models/searchUserResponse.json')
 }

@@ -1,6 +1,6 @@
 {
   "post": {
-    "tags": ["Auth"],
+    "tags": ["User"],
     "summary": "User Register operation",
     "operationId": "Register",
     "parameters": [],

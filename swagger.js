@@ -19,12 +19,16 @@ module.exports = {
     ],
     tags: [
         {
-            name: "Auth",
+            name: "User",
             description: "User methods for interaction with user entity"
         },
         {
             name : 'Appoinment',
             description : 'Admin methods  for adding appoinment'
+        },
+        {
+            name : 'Reservation',
+            description : 'User and admin methods for reservation'
         }
     ],
     "paths": require('./swagger/path'),

@@ -1,6 +1,6 @@
 {
-  "post": {
-    "tags": ["Auth"],
+  "get": {
+    "tags": ["User"],
     "summary": "User logout operation",
     "operationId": "logout",
     "parameters": [],
