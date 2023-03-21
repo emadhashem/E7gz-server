@@ -1,5 +1,6 @@
 require('dotenv').config();
-import express, { NextFunction, Request, Response } from 'express';
+import http from 'http'
+import express, { json, NextFunction, Request, Response } from 'express';
 import config from 'config';
 import validateEnv from './utils/validateEnv';
 import { AppDataSource } from './utils/data-source';
@@ -14,12 +15,28 @@ import reservationRoute from './routes/reservation.route'
 import AppError from './utils/appError';
 const swaggerJSDoc = require('../swagger');
 import swaggerUi from 'swagger-ui-express'
+import WebSocket from './websocket';
+import { conn } from './websocket/connections';
 AppDataSource.initialize()
   .then(async () => {
     // VALIDATE ENV
     validateEnv();
 
+    // server
     const app = express();
+    const httpServer = http.createServer(app)
+    new WebSocket(httpServer)
+
+    // socket config
+    WebSocket.ws?.on('request', (request) => {
+      const connection = request.accept(null, request.origin)
+      connection.on('message', (message) => {
+        if (message.type === 'utf8') {
+        }
+        
+      })
+      conn.push(connection)
+    })
 
     // Swagger
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJSDoc, { explorer: true }))
@@ -68,7 +85,7 @@ AppDataSource.initialize()
       })
     })
     const port = config.get<number>('port');
-    app.listen(port);
+    httpServer.listen(port);
 
     console.log(`Server started on port: ${port}`);
   })
